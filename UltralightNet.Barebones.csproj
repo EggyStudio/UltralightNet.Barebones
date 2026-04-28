@@ -30,9 +30,14 @@
         <PackageProjectUrl>https://github.com/EggyStudio/UltralightNet.Barebones</PackageProjectUrl>
         <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
         <PackageTags>ultralight;webview;browser;html;native;appcore</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
 
     <!-- All managed sources from the previous sub-projects -->
     <ItemGroup>
@@ -66,6 +71,9 @@
         <None Include="runtimes/osx-x64/native/libUltralightCore.dylib" Pack="true" PackagePath="runtimes/osx-x64/native/"   CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-x64/native/%(Filename)%(Extension)" />
         <None Include="runtimes/osx-x64/native/libWebCore.dylib"        Pack="true" PackagePath="runtimes/osx-x64/native/"   CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-x64/native/%(Filename)%(Extension)" />
         <None Include="runtimes/osx-x64/native/libAppCore.dylib"        Pack="true" PackagePath="runtimes/osx-x64/native/"   CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-x64/native/%(Filename)%(Extension)" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="README.md" />
     </ItemGroup>
 
 </Project>
