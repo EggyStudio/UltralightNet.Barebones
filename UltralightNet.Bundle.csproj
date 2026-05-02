@@ -22,7 +22,7 @@
         <IsPackable>true</IsPackable>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageId>UltralightNet.Bundle</PackageId>
-        <Version>2.1.0</Version>
+        <Version>2.2.0</Version>
         <Description>Ultralight .NET bindings (UltralightNet + AppCore + native binaries) bundled in a single package.</Description>
         <Authors>EggyStudio</Authors>
         <Company>UltralightNet.Bundle</Company>
