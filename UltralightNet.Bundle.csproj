@@ -38,8 +38,15 @@
 
     <!-- Branding / docs -->
     <ItemGroup>
-        <None Include="README.md" Pack="true" PackagePath="/" />
-        <None Include=".github/assets/*" Pack="true" PackagePath="/" Visible="true" />
+        <None Include="README.md" Pack="true" PackagePath="/"/>
+        <None Include=".github/assets/*" Pack="true" PackagePath="/" Visible="true"/>
+    </ItemGroup>
+
+    <!-- Surface GitHub Actions workflows in the IDE solution view. 
+         Not packed, not copied to output. -->
+    <ItemGroup>
+        <None Include=".github/workflows/*.yml" Pack="false" Visible="true"/>
+        <None Include=".github/workflows/*.yaml" Pack="false" Visible="true"/>
     </ItemGroup>
 
     <!-- Ship the native-relocation MSBuild logic to consumers.
@@ -50,20 +57,20 @@
     <ItemGroup>
         <None Include="build/UltralightNet.Bundle.targets"
               Pack="true"
-              PackagePath="build/UltralightNet.Bundle.targets" />
+              PackagePath="build/UltralightNet.Bundle.targets"/>
         <None Include="buildTransitive/UltralightNet.Bundle.targets"
               Pack="true"
-              PackagePath="buildTransitive/UltralightNet.Bundle.targets" />
+              PackagePath="buildTransitive/UltralightNet.Bundle.targets"/>
     </ItemGroup>
 
     <!-- Import the same logic locally so this project (and its bin/ output)
          behaves exactly like a downstream consumer. -->
-    <Import Project="build/UltralightNet.Bundle.targets" />
+    <Import Project="build/UltralightNet.Bundle.targets"/>
 
     <!-- All managed sources from the previous sub-projects -->
     <ItemGroup>
-        <Compile Include="src/UltralightNet/**/*.cs" Exclude="src/UltralightNet/bin/**;src/UltralightNet/obj/**" />
-        <Compile Include="src/UltralightNet.AppCore/**/*.cs" Exclude="src/UltralightNet.AppCore/bin/**;src/UltralightNet.AppCore/obj/**" />
+        <Compile Include="src/UltralightNet/**/*.cs" Exclude="src/UltralightNet/bin/**;src/UltralightNet/obj/**"/>
+        <Compile Include="src/UltralightNet.AppCore/**/*.cs" Exclude="src/UltralightNet.AppCore/bin/**;src/UltralightNet.AppCore/obj/**"/>
     </ItemGroup>
 
     <!-- Embedded resources from the original UltralightNet project -->
@@ -78,25 +85,25 @@
 
     <!-- Native binaries: copy to consumer output and pack into runtimes/<rid>/native -->
     <ItemGroup>
-        <None Include="runtimes/win-x64/native/Ultralight.dll"      Pack="true" PackagePath="runtimes/win-x64/native/"   CopyToOutputDirectory="PreserveNewest" Link="runtimes/win-x64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/win-x64/native/UltralightCore.dll"  Pack="true" PackagePath="runtimes/win-x64/native/"   CopyToOutputDirectory="PreserveNewest" Link="runtimes/win-x64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/win-x64/native/WebCore.dll"         Pack="true" PackagePath="runtimes/win-x64/native/"   CopyToOutputDirectory="PreserveNewest" Link="runtimes/win-x64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/win-x64/native/AppCore.dll"         Pack="true" PackagePath="runtimes/win-x64/native/"   CopyToOutputDirectory="PreserveNewest" Link="runtimes/win-x64/native/%(Filename)%(Extension)" />
+        <None Include="runtimes/win-x64/native/Ultralight.dll" Pack="true" PackagePath="runtimes/win-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/win-x64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/win-x64/native/UltralightCore.dll" Pack="true" PackagePath="runtimes/win-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/win-x64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/win-x64/native/WebCore.dll" Pack="true" PackagePath="runtimes/win-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/win-x64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/win-x64/native/AppCore.dll" Pack="true" PackagePath="runtimes/win-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/win-x64/native/%(Filename)%(Extension)"/>
 
-        <None Include="runtimes/linux-x64/native/libUltralight.so"     Pack="true" PackagePath="runtimes/linux-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/linux-x64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/linux-x64/native/libUltralightCore.so" Pack="true" PackagePath="runtimes/linux-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/linux-x64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/linux-x64/native/libWebCore.so"        Pack="true" PackagePath="runtimes/linux-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/linux-x64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/linux-x64/native/libAppCore.so"        Pack="true" PackagePath="runtimes/linux-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/linux-x64/native/%(Filename)%(Extension)" />
+        <None Include="runtimes/linux-x64/native/libUltralight.so" Pack="true" PackagePath="runtimes/linux-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/linux-x64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/linux-x64/native/libUltralightCore.so" Pack="true" PackagePath="runtimes/linux-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/linux-x64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/linux-x64/native/libWebCore.so" Pack="true" PackagePath="runtimes/linux-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/linux-x64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/linux-x64/native/libAppCore.so" Pack="true" PackagePath="runtimes/linux-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/linux-x64/native/%(Filename)%(Extension)"/>
 
-        <None Include="runtimes/osx-x64/native/libUltralight.dylib"     Pack="true" PackagePath="runtimes/osx-x64/native/"   CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-x64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/osx-x64/native/libUltralightCore.dylib" Pack="true" PackagePath="runtimes/osx-x64/native/"   CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-x64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/osx-x64/native/libWebCore.dylib"        Pack="true" PackagePath="runtimes/osx-x64/native/"   CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-x64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/osx-x64/native/libAppCore.dylib"        Pack="true" PackagePath="runtimes/osx-x64/native/"   CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-x64/native/%(Filename)%(Extension)" />
+        <None Include="runtimes/osx-x64/native/libUltralight.dylib" Pack="true" PackagePath="runtimes/osx-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-x64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/osx-x64/native/libUltralightCore.dylib" Pack="true" PackagePath="runtimes/osx-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-x64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/osx-x64/native/libWebCore.dylib" Pack="true" PackagePath="runtimes/osx-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-x64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/osx-x64/native/libAppCore.dylib" Pack="true" PackagePath="runtimes/osx-x64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-x64/native/%(Filename)%(Extension)"/>
 
-        <None Include="runtimes/osx-arm64/native/libUltralight.dylib"     Pack="true" PackagePath="runtimes/osx-arm64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-arm64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/osx-arm64/native/libUltralightCore.dylib" Pack="true" PackagePath="runtimes/osx-arm64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-arm64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/osx-arm64/native/libWebCore.dylib"        Pack="true" PackagePath="runtimes/osx-arm64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-arm64/native/%(Filename)%(Extension)" />
-        <None Include="runtimes/osx-arm64/native/libAppCore.dylib"        Pack="true" PackagePath="runtimes/osx-arm64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-arm64/native/%(Filename)%(Extension)" />
+        <None Include="runtimes/osx-arm64/native/libUltralight.dylib" Pack="true" PackagePath="runtimes/osx-arm64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-arm64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/osx-arm64/native/libUltralightCore.dylib" Pack="true" PackagePath="runtimes/osx-arm64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-arm64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/osx-arm64/native/libWebCore.dylib" Pack="true" PackagePath="runtimes/osx-arm64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-arm64/native/%(Filename)%(Extension)"/>
+        <None Include="runtimes/osx-arm64/native/libAppCore.dylib" Pack="true" PackagePath="runtimes/osx-arm64/native/" CopyToOutputDirectory="PreserveNewest" Link="runtimes/osx-arm64/native/%(Filename)%(Extension)"/>
     </ItemGroup>
 
 </Project>
