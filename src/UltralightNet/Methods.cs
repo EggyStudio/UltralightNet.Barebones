@@ -81,7 +81,9 @@ public static unsafe partial class Methods
 		if (string.IsNullOrEmpty(baseDir))
 			baseDir = Path.GetDirectoryName(typeof(Methods).Assembly.Location) ?? ".";
 
-		string rid = OperatingSystem.IsMacOS() ? "osx-x64" : "linux-x64";
+		string rid = OperatingSystem.IsMacOS()
+			? (RuntimeInformation.ProcessArchitecture == Architecture.Arm64 ? "osx-arm64" : "osx-x64")
+			: "linux-x64";
 		_nativeDir = Path.Combine(baseDir, "runtimes", rid, "native");
 		return _nativeDir;
 	}

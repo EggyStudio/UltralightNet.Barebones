@@ -6,7 +6,7 @@ This package bundles everything needed to embed Ultralight in a .NET application
 
 - `UltralightNet` - managed bindings for the Ultralight C API
 - `UltralightNet.AppCore` - managed bindings for AppCore (windowing, font loader, file system, default logger)
-- Native binaries for `win-x64`, `linux-x64`, and `osx-x64` (Ultralight, UltralightCore, WebCore, AppCore)
+- Native binaries for `win-x64`, `linux-x64`, `osx-x64`, and `osx-arm64` (Ultralight, UltralightCore, WebCore, AppCore)
 
 It targets **.NET 10**.
 
@@ -47,6 +47,7 @@ The native binaries are deployed automatically into `runtimes/<rid>/native/` whe
 | `win-x64`   | `Ultralight.dll`, `UltralightCore.dll`, `WebCore.dll`, `AppCore.dll` |
 | `linux-x64` | `libUltralight.so`, `libUltralightCore.so`, `libWebCore.so`, `libAppCore.so` |
 | `osx-x64`   | `libUltralight.dylib`, `libUltralightCore.dylib`, `libWebCore.dylib`, `libAppCore.dylib` |
+| `osx-arm64` | `libUltralight.dylib`, `libUltralightCore.dylib`, `libWebCore.dylib`, `libAppCore.dylib` |
 
 ## Build & pack locally
 
