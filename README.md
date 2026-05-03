@@ -3,12 +3,9 @@
 # UltralightNet.Bundle
 
 [![GitHub Packages](https://img.shields.io/badge/GitHub%20Packages-UltralightNet.Bundle-2dba4e?logo=github)](https://github.com/EggyStudio/UltralightNet.Bundle/packages)
-[![publish-package](https://github.com/EggyStudio/UltralightNet.Bundle/actions/workflows/publish-package.yml/badge.svg?branch=main)](https://github.com/EggyStudio/UltralightNet.Bundle/actions/workflows/publish-package.yml)
-[![Release](https://img.shields.io/github/v/release/EggyStudio/UltralightNet.Bundle?include_prereleases&sort=semver&logo=github&label=Release)](https://github.com/EggyStudio/UltralightNet.Bundle/releases)
 [![License: MPL-2.0](https://img.shields.io/badge/License-MPL--2.0-brightgreen.svg)](LICENSE)
 [![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
 [![Platform](https://img.shields.io/badge/platform-win--x64%20%7C%20linux--x64%20%7C%20osx--x64%20%7C%20osx--arm64-informational)](#supported-runtimes)
-[![Stars](https://img.shields.io/github/stars/EggyStudio/UltralightNet.Bundle?style=social)](https://github.com/EggyStudio/UltralightNet.Bundle/stargazers)
 
 A single-package .NET binding for the [Ultralight](https://ultralig.ht/) HTML rendering engine.
 
